@@ -47,7 +47,7 @@ class TextStyles{
       fontFamily: AppFonts.Roboto,
       fontSize: 16,
       fontWeight: FontWeight.w500,
-      color: Colors.grey.shade200
+      color: customGray
   );
 
 

@@ -10,9 +10,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../../core/resources/images/app_images.dart';
+import '../../../core/resources/styles/styles.dart';
+import '../../../core/routing/routes.dart';
 import '../../../core/themes/colors.dart';
 import '../../../core/utils/helper_methods.dart';
 import '../../../core/widgets/buttons/primary_button.dart';
+import '../../../core/widgets/text-field/custom_text_field.dart';
+import '../../../core/widgets/texts/black_texts.dart';
 import '../../../generated/locale_keys.g.dart';
 import '../widgets/background_images.dart';
 import '../widgets/onboarding_item.dart';
@@ -85,8 +90,15 @@ class OnBoardingScreen extends StatelessWidget {
                           ),
                         ),
                       ),
+                      CustomTextField(
+                        radius: 50,
+                        colorBorderSide: Colors.red,
+                        isPassword: true,
+                       isValidator: false,
+                      ),
                       Center(
-                        child: PrimaryButton(
+                        child:
+                        PrimaryButton(
                           width: 320.w,
                           title: currentPage == 2
                               ? LocaleKeys.getStarted.tr()
@@ -112,6 +124,7 @@ class OnBoardingScreen extends StatelessWidget {
                   );
                 },
               ),
+
             ],
           ),
         ],

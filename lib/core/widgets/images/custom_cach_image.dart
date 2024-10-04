@@ -88,6 +88,7 @@ class ImagePlaceholder extends StatelessWidget {
     }
   }
 }
+
 void openBottomSheet(BuildContext context, ImageProvider imageProvider) =>
     showBottomSheet(
       context: context,

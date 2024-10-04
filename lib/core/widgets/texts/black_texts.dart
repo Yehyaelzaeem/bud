@@ -30,14 +30,14 @@ class BlackBoldText extends StatelessWidget {
   }
 }
 
-class BlackRegularText extends StatelessWidget {
+class BlackSemiBoldText extends StatelessWidget {
   final String label;
   final TextAlign textAlign;
   final TextStyle? labelStyle;
   final Color? labelColor;
   final double? fontSize;
 
-  BlackRegularText({
+  BlackSemiBoldText({
     Key? key,
     required this.label,
     this.textAlign = TextAlign.start,
@@ -52,7 +52,7 @@ class BlackRegularText extends StatelessWidget {
       label,
       textAlign: textAlign,
       style: labelStyle ??
-          TextStyles.font18Black700Weight.copyWith(fontSize: fontSize ?? 14, color: labelColor),
+          TextStyles.font18Black700Weight.copyWith(fontSize: fontSize ?? 16, color: labelColor),
     );
   }
 }
@@ -90,14 +90,14 @@ class BlackMediumText extends StatelessWidget {
   }
 }
 
-class BlackSemiBoldText extends StatelessWidget {
+class BlackRegularText extends StatelessWidget {
   final String label;
   final TextAlign textAlign;
   final TextStyle? labelStyle;
   final Color? labelColor;
   final double? fontSize;
 
-  BlackSemiBoldText({
+  BlackRegularText({
     Key? key,
     required this.label,
     this.textAlign = TextAlign.start,
@@ -112,7 +112,7 @@ class BlackSemiBoldText extends StatelessWidget {
       label,
       textAlign: textAlign,
       style: labelStyle ??
-          TextStyles.font18Black700Weight.copyWith(fontSize: fontSize ?? 16, color: labelColor),
+          TextStyles.font18Black700Weight.copyWith(fontSize: fontSize ?? 14, color: labelColor),
     );
   }
 }

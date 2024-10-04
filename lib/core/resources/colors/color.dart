@@ -9,10 +9,9 @@ const googleColor =  Color(0xffF14436);
 const customPink =  Color(0xffF9E6CC);
 Color customPink2 = Colors.red;
 //const customPink2 = Color(249, 230, 204, 1);
- const Color greyColor = Color(0xff7A7A7A);
-
+const Color greyColor = Color(0xff7A7A7A);
 const customRedColor =  Color(0xffD32F2F);
-const customGray =  Color(0xff757575);
+const customGray =  Color(0xffb7b7b7);
 const Color whiteColor = Color(0xffffffff);
 const Color blackColor = Color(0xFF000000);
 const Color customBlack = Color(0xFF2F3236);

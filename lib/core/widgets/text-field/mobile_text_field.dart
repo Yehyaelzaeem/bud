@@ -27,6 +27,7 @@ class MobileTextField extends StatelessWidget {
          label: '964+',
         ),
       ),
+//يببي
       validator: (value) {
         // if (value!.isEmpty) {
         //   return strings.this_field_is_required;

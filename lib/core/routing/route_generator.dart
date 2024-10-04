@@ -11,7 +11,6 @@ class RouteGenerator {
         case Routes.onBoardingScreen:
           return platformPageRoute( OnBoardingScreen());
 
-
       default:
         return platformPageRoute(const UndefinedRouteScreen());
     }
