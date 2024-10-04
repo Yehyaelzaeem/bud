@@ -1,4 +1,3 @@
-import 'package:bud/src/on_boarding/presentation/test.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +32,7 @@ final supportedLocales = <Locale>[
   const Locale('ar'),
 ];
 
+//Yah
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
           ),
           initialRoute: Routes.onBoardingScreen,
 
-          // home: Test(),
+          // home: SidebarXExampleApp(),
         );
       },
     );
