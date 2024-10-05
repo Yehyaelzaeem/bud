@@ -16,17 +16,14 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  LoginScreen({super.key});
 
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
   GlobalKey<FormState> fromglobalkey = GlobalKey<FormState>();
+
   TextStyle hintstyle =
       TextStyles.font18CustomGray600Weight.copyWith(color: Colors.grey[350]);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
