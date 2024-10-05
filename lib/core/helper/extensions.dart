@@ -2,7 +2,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../routing/navigation_services.dart';
 
-/// Extension Context
 extension Navigation on BuildContext {
   Future<dynamic> pushNamed(String routeName, {Object? arguments}) {
     return Navigator.of(this).pushNamed(routeName, arguments: arguments);
@@ -22,22 +21,13 @@ extension Navigation on BuildContext {
   void pop() => Navigator.of(this).pop();
 }
 
-extension SizeExtension on BuildContext {
-  BuildContext get appContext => NavigationService.navigationKey.currentContext!;
-  MediaQueryData get mediaQuery => MediaQuery.of(appContext);
-  double get appWidth => mediaQuery.size.width;
-  double get appHeight => mediaQuery.size.height;
-}
 
 
-/// Extension Size
 extension View on num {
   SizedBox get height => SizedBox(height: toDouble().h);
   SizedBox get width => SizedBox(width: toDouble().w);
   SizedBox get phShrink => const SizedBox.shrink();
 }
-
-
 extension PaddingExtension on num {
 
   EdgeInsetsDirectional get paddingAll => EdgeInsetsDirectional.all(toDouble().h);
@@ -54,5 +44,9 @@ extension PaddingExtension on num {
 
   EdgeInsetsDirectional get paddingBottom => EdgeInsetsDirectional.only(bottom: toDouble().h);
 }
-
-
+extension SizeExtension on BuildContext {
+  BuildContext get appContext => NavigationService.navigationKey.currentContext!;
+  MediaQueryData get mediaQuery => MediaQuery.of(appContext);
+  double get appWidth => mediaQuery.size.width;
+  double get appHeight => mediaQuery.size.height;
+}

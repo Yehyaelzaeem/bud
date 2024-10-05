@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 
 import '../../resources/styles/styles.dart';
@@ -25,7 +24,8 @@ class PrimaryBoldText extends StatelessWidget {
       label,
       textAlign: textAlign,
       style: labelStyle ??
-          TextStyles.font18Black700Weight.copyWith(fontSize: fontSize ?? 16, color: labelColor),
+          TextStyles.font21Black700Weight
+              .copyWith(fontSize: fontSize ?? 16, color: labelColor),
     );
   }
 }
@@ -52,10 +52,12 @@ class PrimaryRegularText extends StatelessWidget {
       label,
       textAlign: textAlign,
       style: labelStyle ??
-          TextStyles.font18Black700Weight.copyWith(fontSize: fontSize ?? 16, color: labelColor),
+          TextStyles.font16Black500Weight
+              .copyWith(fontSize: fontSize ?? 16, color: labelColor),
     );
   }
 }
+
 class PrimaryMediumText extends StatelessWidget {
   final String label;
   final TextAlign textAlign;
@@ -78,7 +80,8 @@ class PrimaryMediumText extends StatelessWidget {
       label,
       textAlign: textAlign,
       style: labelStyle ??
-          TextStyles.font18Black700Weight.copyWith(fontSize: fontSize ?? 16, color: labelColor),
+          TextStyles.font18Black700Weight
+              .copyWith(fontSize: fontSize ?? 16, color: labelColor),
     );
   }
 }
@@ -105,7 +108,8 @@ class SemiBoldPrimaryText extends StatelessWidget {
       label,
       textAlign: textAlign,
       style: labelStyle ??
-          TextStyles.font18Black700Weight.copyWith(fontSize: fontSize ?? 16, color: labelColor),
+          TextStyles.font20Black400Weight
+              .copyWith(fontSize: fontSize ?? 16, color: labelColor),
     );
   }
 }

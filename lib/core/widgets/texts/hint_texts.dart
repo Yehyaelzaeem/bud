@@ -1,7 +1,6 @@
 import 'package:bud/core/resources/styles/styles.dart';
 import 'package:flutter/cupertino.dart';
 
-
 class HintBoldText extends StatelessWidget {
   final String label;
   final TextAlign textAlign;
@@ -24,7 +23,10 @@ class HintBoldText extends StatelessWidget {
       label,
       textAlign: textAlign,
       style: labelStyle ??
-          TextStyles.font16CustomGray500Weight.copyWith(fontSize: fontSize ?? 16, color: labelColor, fontWeight: FontWeight.bold),
+          TextStyles.font21Hint700Weight.copyWith(
+              fontSize: fontSize ?? 16,
+              color: labelColor,
+              fontWeight: FontWeight.bold),
     );
   }
 }
@@ -51,7 +53,8 @@ class HintRegularText extends StatelessWidget {
       label,
       textAlign: textAlign,
       style: labelStyle ??
-          TextStyles.font16CustomGray500Weight.copyWith(fontSize: fontSize ?? 14, color: labelColor),
+          TextStyles.font16CustomGray500Weight
+              .copyWith(fontSize: fontSize ?? 14, color: labelColor),
     );
   }
 }
@@ -78,10 +81,10 @@ class HintMediumText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       label,
-
       textAlign: textAlign,
       style: style ??
-          TextStyles.font16CustomGray500Weight.copyWith(fontSize: fontSize ?? 16, height: height,color: labelColor),
+          TextStyles.font18CustomGray600Weight.copyWith(
+              fontSize: fontSize ?? 16, height: height, color: labelColor),
     );
   }
 }
@@ -108,7 +111,8 @@ class HintSemiBoldText extends StatelessWidget {
       label,
       textAlign: textAlign,
       style: style ??
-          TextStyles.font16CustomGray500Weight.copyWith(fontSize: fontSize ?? 16, color: labelColor),
+          TextStyles.font20CustomGray400Weight
+              .copyWith(fontSize: fontSize ?? 16, color: labelColor),
     );
   }
 }

@@ -50,7 +50,6 @@ class OnboardingItem extends StatelessWidget {
                  } else {
                    await context.setLocale(const Locale('en'));
                  }
-
                  context.pushNamedAndRemoveUntil(Routes.onBoardingScreen, predicate: (Route<dynamic> route) { return false; });
                },
              ),

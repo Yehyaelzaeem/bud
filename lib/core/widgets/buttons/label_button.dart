@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 
 class LabelButton extends StatelessWidget {
@@ -23,10 +22,7 @@ class LabelButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Text(
-        title,
-        style: style
-      ),
+      child: Text(title, style: style),
     );
   }
 }

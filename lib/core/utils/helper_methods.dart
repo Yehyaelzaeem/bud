@@ -6,8 +6,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 
 class HelperMethods {
   static Future<CroppedFile?> getImagePicker() async {
@@ -28,7 +28,7 @@ class HelperMethods {
 
   static Future<File> getImageFromCamera() async {
     final pickedFile =
-    await ImagePicker().pickImage(source: ImageSource.camera);
+        await ImagePicker().pickImage(source: ImageSource.camera);
     return File(pickedFile!.path);
   }
 
@@ -116,6 +116,7 @@ class HelperMethods {
     }
     return '';
   }
+
   static Future<String> timePicker(BuildContext context) async {
     final TimeOfDay? picked = await showTimePicker(
       context: context,
@@ -254,22 +255,22 @@ class HelperMethods {
   //
   // }
   //
-  // static Future<bool> isFirstTime() async {
-  //   try {
-  //     SharedPreferences prefs = await SharedPreferences.getInstance();
-  //     bool isFirstTime = prefs.getBool('isFirstTime') ?? true;
-  //     return isFirstTime;
-  //   } catch (e) {
-  //     return false;
-  //   }
-  // }
-  //
-  // static Future<void> setFirstTime() async {
-  //   try {
-  //     SharedPreferences prefs = await SharedPreferences.getInstance();
-  //     prefs.setBool('isFirstTime', false);
-  //   } catch (e) {
-  //     print('e $e');
-  //   }
-  // }
+  static Future<bool> isFirstTime() async {
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      bool isFirstTime = prefs.getBool('isFirstTime') ?? true;
+      return isFirstTime;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  static Future<void> setFirstTime() async {
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setBool('isFirstTime', false);
+    } catch (e) {
+      print('e $e');
+    }
+  }
 }

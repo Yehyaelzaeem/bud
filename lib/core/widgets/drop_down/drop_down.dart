@@ -6,7 +6,6 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import '../../resources/colors/color.dart';
 import '../../resources/styles/styles.dart';
-import '../../themes/colors.dart';
 import '../../utils/validation.dart';
 import '../texts/hint_texts.dart';
 
@@ -73,7 +72,8 @@ class DropDownField extends StatelessWidget {
               hintStyle:  TextStyles.font16CustomGray500Weight,
               filled: true,
 
-              fillColor: fillColor ??whiteColor,
+              fillColor:
+                  fillColor ?? greyColor,
               contentPadding:
                   const EdgeInsets.symmetric(vertical: 16, horizontal: 0),
               border: OutlineInputBorder(
