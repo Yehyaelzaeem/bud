@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 ///appColors
 const primaryColor =  Color(0xff6737CB);
+final borderColor =  Colors.grey.shade50;
 const secondPrimaryColor =  Color(0xffDF8400);
 const appBorderColor =  Color(0xffCCCCCC);
 const faceBookColor =  Color(0xff385C8E);

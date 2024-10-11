@@ -14,6 +14,11 @@ class DateFormatter {
       return '${date.hour}:${date.minute}';
     }
   }
+  static String formatDate55(String date) {
+    final DateTime dateTime = DateTime.parse(date);
+    final String formatter = DateFormat('yyyy-MM-dd').format(dateTime);
+    return formatter;
+  }
   static String getFormattedCurrentDateTime(DateTime dateTime) {
     DateFormat formatter = DateFormat('yyyy-MM-dd HH:mm:ss');
     String formattedDateTime = formatter.format(dateTime);

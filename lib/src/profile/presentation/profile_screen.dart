@@ -4,17 +4,13 @@ import 'package:bud/core/themes/colors.dart';
 import 'package:bud/core/widgets/Custom_Profile_ListTile.dart';
 import 'package:bud/core/widgets/buttons/app_icon_button.dart';
 import 'package:bud/core/widgets/buttons/outlined_button.dart';
-import 'package:bud/core/widgets/custom_title_row.dart';
-import 'package:bud/core/widgets/dialogs/progress_dialog.dart';
-import 'package:bud/core/widgets/scaffold/common_appbar.dart';
+
 import 'package:bud/core/widgets/scaffold/common_drawer.dart';
 import 'package:bud/core/widgets/texts/hint_texts.dart';
 import 'package:bud/core/widgets/texts/primary_texts.dart';
-import 'package:bud/generated/assets.dart';
-import 'package:bud/generated/locale_keys.g.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

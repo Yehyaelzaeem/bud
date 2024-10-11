@@ -1,6 +1,6 @@
 import 'package:bud/core/routing/platform_page_route.dart';
 import 'package:bud/core/routing/undefined_route_screen.dart';
-import 'package:bud/src/Auth/Presentation/forgot_password_screen.dart';
+import 'package:bud/src/Auth/Presentation/forgot_password_Screen.dart';
 import 'package:bud/src/Auth/Presentation/login_screen.dart';
 import 'package:bud/src/Auth/Presentation/register_screen.dart';
 import 'package:bud/src/Profile/Presentation/profile_screen.dart';

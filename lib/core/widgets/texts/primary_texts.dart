@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
+import '../../resources/colors/color.dart';
 import '../../resources/styles/styles.dart';
 
 class PrimaryBoldText extends StatelessWidget {
@@ -25,7 +26,7 @@ class PrimaryBoldText extends StatelessWidget {
       textAlign: textAlign,
       style: labelStyle ??
           TextStyles.font21Black700Weight
-              .copyWith(fontSize: fontSize ?? 16, color: labelColor),
+              .copyWith(fontSize: fontSize ?? 16, color: labelColor??primaryColor),
     );
   }
 }

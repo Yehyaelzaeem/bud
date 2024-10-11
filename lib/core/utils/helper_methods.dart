@@ -2,7 +2,9 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
@@ -84,6 +86,27 @@ class HelperMethods {
       showErrorToast('حدث خطأ اثناء الاتصال بالواتساب');
     }
   }
+  static Future<DateTime?> selectDate(BuildContext context) async {
+    ThemeData theme = Theme.of(context);
+    return await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1000),
+      lastDate: DateTime(3555),
+      builder: (BuildContext context, Widget? child) {
+        return Theme(
+          data: ThemeData.light().copyWith(
+            colorScheme: ColorScheme.light(
+            ),
+            buttonTheme: const ButtonThemeData(
+              textTheme: ButtonTextTheme.primary,
+            ),
+          ),
+          child: child!,
+        );
+      },
+    );
+  }
 
   // telegram
   static Future<void> launchTelegram(String phoneNumber) async {
@@ -138,22 +161,18 @@ class HelperMethods {
     return '';
   }
 
-  static String formatDate(String date) {
-    final DateTime dateTime = DateTime.parse(date);
-    final String formatter = DateFormat('yyyy-MM-dd').format(dateTime);
-    return formatter;
+
+/// Locale DATA
+  static  GetStorage getStorage = GetStorage();
+  ///Language
+  static setLanguage(String language) async {
+    getStorage.write('language', language);
+  }
+  static String getLanguage() {
+    return getStorage.read('language') ?? 'en';
   }
 
-  // static setLanguage(String language) async {
-  //   // SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   // prefs.setString('language', language);
-  // }
-  //
-  // static Future<String> getLanguage() async {
-  //   // SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   // return prefs.getString('language') ?? 'en';
-  // }
-  //
+  ///Profile
   // static Future<void> saveProfile(ProfileDto dto) async {
   //
   //   try {
@@ -170,82 +189,38 @@ class HelperMethods {
   //     rethrow;
   //   }
   // }
-  //
-  // static Future<void> saveToken(String token) async {
-  //   try {
-  //     GetStorage().write('token',  token);
-  //     SharedPreferences prefs = await SharedPreferences.getInstance();
-  //     prefs.setString('token', token);
-  //   } on Exception catch (e) {
-  //     print('e $e');
-  //     rethrow;
-  //   }
-  // }
-  // static getProfile2(){
+  // static getProfile(){
   //   var res = GetStorage().read('profile');
-  //  return  ProfileDto.fromJson(jsonDecode(res));
+  //   return  ProfileDto.fromJson(jsonDecode(res));
   // }
-  // static String getTokenStorage(){
-  //   var res = GetStorage().read('token');
-  //  return  res??'';
-  // }
-  //
-  // static Future<ProfileDto> getProfile() async {
-  //   try {
-  //     SharedPreferences prefs = await SharedPreferences.getInstance();
-  //     String profile = prefs.getString('profile') ?? '';
-  //     print('profile $profile');
-  //     final decoded = jsonDecode(profile);
-  //     print('decoded $decoded');
-  //     return ProfileDto.fromJson(decoded);
-  //   } on Exception catch (e) {
-  //     print('getProfile error $e');
-  //     return ProfileDto();
-  //   }
-  // }
-  //
-  // static Future<DateTime?> selectDate(BuildContext context) async {
-  //   ThemeData theme = Theme.of(context);
-  //   return await showDatePicker(
-  //     context: context,
-  //     initialDate: DateTime.now(),
-  //     firstDate: DateTime(1000),
-  //     lastDate: DateTime(3555),
-  //     builder: (BuildContext context, Widget? child) {
-  //       return Theme(
-  //         data: ThemeData.light().copyWith(
-  //           colorScheme: ColorScheme.light(
-  //             primary: injector<ServicesLocator>().appContext.primaryColor,
-  //           ),
-  //           buttonTheme: const ButtonThemeData(
-  //             textTheme: ButtonTextTheme.primary,
-  //           ),
-  //         ),
-  //         child: child!,
-  //       );
-  //     },
-  //   );
-  // }
-  //
-  // static Future<String> getToken() async {
-  //   try {
-  //     SharedPreferences prefs = await SharedPreferences.getInstance();
-  //     return prefs.getString('token') ?? '';
-  //   } on Exception catch (e) {
-  //     return '';
-  //   }
-  // }
-  //
-  // // is login
-  // static Future<bool> isLogin() async {
-  //   try {
-  //     String token = await getToken();
-  //     return token.isNotEmpty && token != null;
-  //   } on Exception catch (e) {
-  //     return false;
-  //   }
-  // }
-  //
+
+///Token
+   Future<void> saveToken(String token) async {
+    try {
+      saveSecuredData('token', token);
+    } on Exception catch (e) {
+      rethrow;
+    }
+  }
+
+   Future<String?> getToken()async{
+     var res =await getSecuredData('token');
+     return  res??'';
+  }
+
+
+
+///Auth Methods
+  // is login
+   Future<bool> isLogin() async {
+    try {
+      String? token =  await  getToken();
+      return  token != null &&token.isNotEmpty;
+    } on Exception catch (e) {
+      return false;
+    }
+  }
+
   // // remove token
   // static Future<void> clearCashData() async {
   //   SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -254,12 +229,10 @@ class HelperMethods {
   //   });
   //
   // }
-  //
-  static Future<bool> isFirstTime() async {
+
+  static bool isFirstTime()  {
     try {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      bool isFirstTime = prefs.getBool('isFirstTime') ?? true;
-      return isFirstTime;
+      return getStorage.read('isFirstTime') ?? true;
     } catch (e) {
       return false;
     }
@@ -267,10 +240,19 @@ class HelperMethods {
 
   static Future<void> setFirstTime() async {
     try {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      prefs.setBool('isFirstTime', false);
+      getStorage.write('isFirstTime', false);
     } catch (e) {
       print('e $e');
     }
   }
+
+
+  ///Security Storage
+  FlutterSecureStorage secureStorage = const FlutterSecureStorage();
+  Future<String?> getSecuredData(String key) async => await secureStorage.read(key: key);
+
+  Future<void> saveSecuredData(String key, String value) async => await secureStorage.write(key: key, value: value);
+
+  Future<void> deleteSecuredData() async => await secureStorage.deleteAll();
+
 }
