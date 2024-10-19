@@ -1,6 +1,6 @@
 import 'package:bud/core/utils/helper_methods.dart';
 import 'package:bud/src/auth/logic/auth_cubit.dart';
-import 'package:bud/src/layout/layout.dart';
+import 'package:bud/src/layout/layout_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,8 +33,8 @@ void main() async {
 }
 
 final supportedLocales = <Locale>[
-  const Locale('en'),
   const Locale('ar'),
+  const Locale('en'),
 ];
 
 //Test
@@ -70,10 +70,10 @@ class MyApp extends StatelessWidget {
                 colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
                     .copyWith(background: Colors.white),
               ),
-              initialRoute: isFirstTime == true
-                  ? Routes.onBoardingScreen
-                  : Routes.loginscreen,
-//           home: LayoutScreen(),
+              // initialRoute: isFirstTime == true
+              //     ? Routes.onBoardingScreen
+              //     : Routes.loginscreen,
+          home: LayoutScreen(),
             );
           },
         )

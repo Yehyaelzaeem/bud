@@ -2,6 +2,12 @@
 class Assets {
   Assets._();
 
+  static const String iconsComment = 'assets/icons/comment.svg';
+  static const String iconsDots = 'assets/icons/dots.svg';
+  static const String iconsLike = 'assets/icons/like.svg';
+  static const String iconsLikeButton = 'assets/icons/likeButton.svg';
+  static const String iconsShare = 'assets/icons/share.svg';
+  static const String imagesDots = 'assets/images/dots.svg';
   static const String imagesGoogle = 'assets/images/google.png';
   static const String imagesHolder = 'assets/images/holder.png';
   static const String imagesOnBoarding1 = 'assets/images/on_boarding1.webp';
